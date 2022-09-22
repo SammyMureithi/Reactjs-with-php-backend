@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#uncornfirmedExpensesCard{
+  margin: 0px auto;
+  width: 50vw;
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+}
