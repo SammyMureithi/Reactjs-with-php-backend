@@ -2,30 +2,39 @@ import React, { useState } from 'react'
 
 function Login() {
     const [loginData, setLoginData] = useState( {
-        username: "",
-        password: "",
+        username: "Oya",
+        password:1,
     } );
     function handleSubmit( e ) {
-        console.log( loginData );
+        console.log(JSON.stringify(loginData))
         e.preventDefault();
-        const myData = loginData;
-        fetch( "https://vizasolutions.co.ke/shell/php/login2.php", {
+        const myAddProducts = {
+            product_name: "Mouse",
+            buying_price: 200,
+            selling_price: 400,
+            stock: 30,
+            product_type:"Tech"
+        }
+        const myLoginData = {
+            loginData
+        }
+        var formData = new FormData();
+        formData.append( 'product_name', "Laptop" );
+        formData.append( "buying_price", "200" );
+        formData.append( 'selling_price', "400" );
+        formData.append( "stock", "20");
+        formData.append( "product_type", "Tech" );
+        fetch( "https://vizasolutions.co.ke/shell/php/add_products.php", {
             method: "POST",
             headers: {
-                'Content-Type': "Application/json",
+              
             },
-            body: JSON.stringify( myData )
-            
+            body: formData,
         } )
-            .then( res => {
-                if ( !res.ok ) {
-                    console.log("Post failed")
-                }
-                return res;
-            })
-            .then( res => res.json() )
-        .then(res => console.log(res))
-    }
+            .then( r => r.json() )
+            .then( r => console.log( r ) )
+            .catch( error => console.log( error ) );
+  }
     function handleInputChange( e ) {
         setLoginData( prevState => {
             return {...prevState,[e.target.name]:e.target.value}

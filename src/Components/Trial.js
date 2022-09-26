@@ -16,7 +16,7 @@ function Trial() {
     }, [] )
     const res = unConfirmedExpenses.length>0? unConfirmedExpenses.map( element => {
         return (
-            <div id="uncornfirmedExpensesCard" key={element.id}>
+            <div id="uncornfirmedExpensesCard" key={element.id+element.description}>
                 <h2>Amount:: {element.amount}</h2>
                 <p>Desciption: {element.description}</p>
                 <h2>Processed By:: {element.processed_by}</h2>
