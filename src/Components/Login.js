@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React, { useState } from 'react'
 
 function Login() {
@@ -47,7 +48,8 @@ function Login() {
               <input type={"text"} name="username" value={loginData.username} onChange={handleInputChange} />
               <label htmlFor='password'>Username</label>
               <input type={"password"} name="password" value={loginData.password} onChange={handleInputChange} />
-              <button type='submit'>Submit</button>
+              <Button variant="contained" type='submit'>Submit</Button>
+            
           </form>
     </div>
   )
